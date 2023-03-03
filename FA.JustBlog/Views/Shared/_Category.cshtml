@@ -1,0 +1,7 @@
+﻿@model IEnumerable<FA.JustBlog.Core.Models.Category>
+@{
+    foreach (var item in Model)
+    {
+        <a class="dropdown-item" href="@Url.Action("PostByCategory","Post", new { category = item.CategoryName })">@item.CategoryName</a>
+    }
+}

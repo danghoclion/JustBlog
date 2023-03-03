@@ -1,0 +1,67 @@
+﻿@model IEnumerable<FA.JustBlog.Core.Models.Tag>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Tables</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                <td><a class="btn btn-primary" asp-action="Create" asp-controller="AdminTag">New</a></td>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                All tag
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(x => x.TagId)</th>
+                            <th>@Html.DisplayNameFor(x => x.TagName)</th>
+                            <th>@Html.DisplayNameFor(x => x.UrlSlug)</th>
+                            <th>@Html.DisplayNameFor(x => x.Description)</th>              
+                            <th>@Html.DisplayNameFor(x => x.Count)</th>              
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <span>
+                                    @item.TagId
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        @item.TagName
+                                    </span>
+                                </td>
+                                <td>@item.UrlSlug</td>
+                                <td>@item.Description</td>
+                                <td>@item.Count</td>
+                                <td>
+                                    <a asp-action="Edit" asp-controller="AdminTag" asp-route-id="@item.TagId" class="btn btn-primary" type="submit" asp-for>Edit</a>
+                                </td>
+                                <td>
+                                    <a asp-action="Details" asp-controller="AdminTag" asp-route-id="@item.TagId" class="btn btn-warning">Details</a>
+                                </td>
+                                <td>
+                                    <a asp-action="Delete" asp-controller="AdminTag" asp-route-id="@item.TagId" class="btn btn-danger" type="submit">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

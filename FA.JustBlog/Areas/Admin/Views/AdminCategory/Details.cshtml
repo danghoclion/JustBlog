@@ -1,0 +1,12 @@
+﻿@model FA.JustBlog.Core.Models.Category
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width: 700px; margin: 50px auto">
+    <p>Category ID: @Model.CategoryId</p>
+    <p>Category Name: @Model.CategoryName</p>
+    <p>UrlSlug: @Model.UrlSlug</p>
+    <p>Description: @Model.Description</p>
+</div>

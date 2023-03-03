@@ -1,0 +1,26 @@
+﻿@model IEnumerable<FA.JustBlog.Core.Models.Post>
+@{
+    ViewData["Title"] = "PostByCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-3 mx-auto">
+    <div id="partialName">
+        @foreach (var item in Model)
+        {
+            @*<partial name="_ListPost" model="item" />*@
+            <div class="post-preview">
+                <a href="@Url.Action("Detail","Post", new { id = item.PostId })">
+                    <h2 class="post-title">@item.Title</h2>
+                    <h3 class="post-subtitle">@item.ShortDescription</h3>
+                </a>
+                <p class="post-meta">
+                    Posted @item.PostedOn with rate
+                </p>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4" />
+        }
+    </div>
+</div>
+

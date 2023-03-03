@@ -1,0 +1,69 @@
+﻿@model IEnumerable<FA.JustBlog.Core.Models.Post>
+@using FA.JustBlog.Models;
+@using Microsoft.AspNetCore.Mvc.ViewFeatures;
+@using Microsoft.AspNetCore.Mvc.Rendering;
+
+@{
+    ViewData["Title"] = "Index";
+}
+    <header class="masthead" style="background-image: url('/assets/img/home-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Clean Blog</h1>
+                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+           
+            @foreach (var item in Model)
+            {
+                var rate = 0;
+                if(item.RateCount > 0)
+                    rate = item.TotalRate / item.RateCount;
+                <div class="post-preview">
+                    <a href="@Url.Action("Detail","Post", new { id = item.PostId })">
+                        <h2 class="post-title">@item.Title</h2>
+                    </a>
+                    <p class="post-meta">
+                        Posted @DateTimePicker.GenerateDateState(@item.PostedOn) at @string.Format("{0:h:m tt}", item.PostedOn) with rate @rate by @item.ViewCount views(s)
+                    </p>
+                    @{
+                        var json = Context.Session.GetString("category");
+                        var category = JsonConvert.DeserializeObject<List<Category>>(json);
+                        List<GetTagModels> tag = ViewBag.tag;
+                        //tag = tag.Where(m => m.PostId == item.PostId);
+                    }
+                    @foreach (var temp in category)
+                    {
+                        if (temp.CategoryId == item.CategoryId)
+                        {
+                            <span>Category:</span> <u href="@Url.Action("PostByCategory","Post", new { id = temp.CategoryId })">@temp.CategoryName</u>
+                             
+                            <p>Tag:
+                            @foreach (var i in tag)
+                            {
+                                    if (i.PostId == item.PostId)
+                                    {
+                                        <u style="background-color: black; color: white">  @i.TagName  </u>
+                                    }
+                            }
+                            </p>
+                        }
+                    }
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+            }
+            <!-- Pager-->
+            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+        </div>
+    </div>
+</div>

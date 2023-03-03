@@ -1,0 +1,12 @@
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\bin\Debug\net6.0\FA.JustBlog.Common.deps.json
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\bin\Debug\net6.0\FA.JustBlog.Common.dll
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\bin\Debug\net6.0\FA.JustBlog.Common.pdb
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\obj\Debug\net6.0\FA.JustBlog.Common.csproj.AssemblyReference.cache
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\obj\Debug\net6.0\FA.JustBlog.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\obj\Debug\net6.0\FA.JustBlog.Common.AssemblyInfoInputs.cache
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\obj\Debug\net6.0\FA.JustBlog.Common.AssemblyInfo.cs
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\obj\Debug\net6.0\FA.JustBlog.Common.csproj.CoreCompileInputs.cache
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\obj\Debug\net6.0\FA.JustBlog.Common.dll
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\obj\Debug\net6.0\refint\FA.JustBlog.Common.dll
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\obj\Debug\net6.0\FA.JustBlog.Common.pdb
+C:\Users\DangHoc\Desktop\Fsoft\FA.JustBlog\FA.JustBlog.Common\obj\Debug\net6.0\ref\FA.JustBlog.Common.dll

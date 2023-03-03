@@ -1,0 +1,17 @@
+﻿@model FA.JustBlog.Core.Models.Post
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width: 700px; margin: 50px auto">
+    <p>Title: @Model.Title</p>
+    <p>Short Description: @Model.ShortDescription</p>
+    <p>Url Slug: @Model.UrlSlug</p>
+    <p>Modified in: @Model.Modified</p>
+    <p>Posted On: @Model.PostedOn</p>
+    <p>Category ID: @Model.CategoryId</p>
+    <p>Published: @Model.Published</p>
+    <p>View Count: @Model.ViewCount</p>
+    <p>Rate Count: @Model.RateCount</p>
+</div>

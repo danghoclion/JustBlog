@@ -1,0 +1,90 @@
+﻿@model FA.JustBlog.Areas.Admin.Models.PostViewModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#ckediter'))
+            .catch(error => {
+                console.error(error);
+            });
+
+        CKEDITOR.replace('ckediter', {
+            height: 400
+        });
+    </script>
+}
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-body">
+            <!-- Basic Tables start -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Add new post:</h4>
+                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <form action="Edit" method="post" enctype="multipart/form-data">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <div class="form-group">
+                                                <label asp-for="post.PostId" class="control-label">PostID</label>
+                                                <input asp-for="post.PostId" value="@ViewBag.ID" readonly="readonly" class="form-control" />
+                                                <span asp-validation-for="post.PostId" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="post.CategoryId" class="control-label">Category</label>
+                                                <select asp-for="post.CategoryId" class="form-control" asp-items="@(new SelectList(Model.CategoryName, nameof(Category.CategoryId), nameof(Category.CategoryName)))">
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="post.Title" class="control-label">Title</label>
+                                                <input asp-for="post.Title" class="form-control" required />
+                                                <span asp-validation-for="post.Title" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="post.ShortDescription" class="control-label">Short Description</label>
+                                                <input asp-for="post.ShortDescription" class="form-control" required />
+                                                <span asp-validation-for="post.ShortDescription" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group" style="width: auto">
+                                                <label asp-for="post.PostContent" class="control-label">Content</label>
+                                                <textarea id="ckediter" asp-for="post.PostContent" cols="10" rows="10" class=""></textarea>
+                                                <span asp-validation-for="post.PostContent" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <br />
+                                                <input type="submit" value="Update" class="btn btn-primary align-content-center" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <br />
+                                @Html.Raw(TempData["msgcreate"])
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
